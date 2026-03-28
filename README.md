@@ -1,2 +1,17 @@
-# gerenciamento_hospital_api
-Projeto de estudo com Spring Boot, JPA e H2 simulando um sistema hospitalar.
+# Hospital Management API
+
+API REST desenvolvida com Spring Boot para gerenciamento hospitalar.
+
+## Tecnologias
+- Java 21
+- Spring Boot
+- Spring Data JPA
+- H2 Database
+- Lombok
+
+## Funcionalidades
+- Cadastro de pacientes
+- Consultas médicas
+- Médicos
+- Convênios
+- Receitas
