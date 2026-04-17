@@ -6,6 +6,8 @@ import java.util.List;
 
 @Entity
 public class Receita {
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
     private String medicamento;

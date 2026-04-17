@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 
 @Entity
 public class Consulta {
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
     private LocalDateTime dataHora;
