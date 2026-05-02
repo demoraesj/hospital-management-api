@@ -1,0 +1,767 @@
+{
+  "info": {
+    "_postman_id": "78da0357-a99f-40fd-9212-5aec99dd7bbe",
+    "name": "hospital",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52783276",
+    "_collection_link": "https://go.postman.co/collection/52783276-78da0357-a99f-40fd-9212-5aec99dd7bbe?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "postPaciente",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nome\":\"Mario\",\r\n    \"cpf\":\"999.211.777-09\",\r\n    \"telefone\":\"666666666\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/paciente",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "paciente"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getPaciente",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/paciente",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "paciente"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "porIdPaciente",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nome\":\"João\",\r\n    \"cpf\":\"520.211.121-09\",\r\n    \"telefone\":\"13123313\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/paciente/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "paciente",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "putPaciente",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nome\": \"flaviao\",\r\n  \"cpf\": \"444444\",\r\n  \"telefone\": \"66666666\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/paciente/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "paciente",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "deletePaciente",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/paciente/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "paciente",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "postMedico",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nome\": \"Kleber\",\r\n    \"especialidade\": \"cardiologista\",\r\n    \"crm\": \"22222\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/medico",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "medico"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getMedico",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/medico",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "medico"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "porIdMedico",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/medico/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "medico",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "putMedico",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nome\": \"Frank\",\r\n    \"especialidade\": \"clinico geral\",\r\n    \"crm\": \"99999\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/medico/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "medico",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "deleteMedico",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/medico/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "medico",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "postConvenio",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nome\": \"Unimed\",\r\n  \"cnpj\": \"192131.0001-99\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/convenio",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "convenio"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getConvenio",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/convenio",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "convenio"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getIdConvenio",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/convenio/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "convenio",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "putConvenio",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nome\": \"Unimed\",\r\n    \"cnpj\": \"28272727.0001-95\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/convenio/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "convenio",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "deleteConvenio",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/convenio/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "convenio",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "postConsulta",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"dataHora\": \"2026-02-01T14:19:00\",\r\n  \"pacienteId\": 1,\r\n  \"medicoId\": 1,\r\n  \"motivo\": \"peito doendo\",\r\n  \"valor\": 200.0\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/consulta",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "consulta"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getConsulta",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/consulta",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "consulta"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "porIdPaciente",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/consulta/4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "consulta",
+            "4"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "putConvenio",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"dataHora\": \"2026-04-26T14:00:00\",\r\n  \"pacienteId\": 2,\r\n  \"medicoId\": 2,\r\n  \"motivo\": \"vomitos\",\r\n  \"valor\": 200.0\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/consulta/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "consulta",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "deleteConvenio",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/consulta/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "consulta",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "postProntuario",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"tipoSanguineo\": \"A+\",\r\n  \"alergia\": \"Dipirona\",\r\n  \"observacoes\": \"Paciente com dor no peito\",\r\n  \"pacienteId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/prontuario",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "prontuario"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getProntuario",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/prontuario",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "prontuario"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "porIdProntuario",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/prontuario/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "prontuario",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "putProntuario",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"tipoSanguineo\": \"AB+\",\r\n  \"alergia\": \"Dipirona\",\r\n  \"observacoes\": \"Paciente com dor no peito\",\r\n  \"pacienteId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/prontuario/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "prontuario",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DeleteProntuario",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/prontuario/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "prontuario",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "postReceita",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"medicamento\": \"Clonazepam\",\r\n  \"dosagem\": \"5mg\",\r\n  \"duracaoDias\": 30,\r\n  \"consultaId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/receita",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "receita"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getReceita",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/receita",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "receita"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "porIdReceita",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/receita/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "receita",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "putReceita",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"medicamento\": \"Dipirona\",\r\n  \"dosagem\": \"5mg\",\r\n  \"duracaoDias\": 30,\r\n  \"consultaId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/receita/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "receita",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "deleteReceita",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/receita/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "receita",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
