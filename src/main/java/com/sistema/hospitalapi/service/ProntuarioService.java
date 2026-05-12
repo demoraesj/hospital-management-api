@@ -2,6 +2,7 @@ package com.sistema.hospitalapi.service;
 
 import com.sistema.hospitalapi.dto.ProntuarioRequestDTO;
 import com.sistema.hospitalapi.dto.ProntuarioResponseDTO;
+import com.sistema.hospitalapi.exception.RegraNegocioException;
 import com.sistema.hospitalapi.model.Paciente;
 import com.sistema.hospitalapi.model.Prontuario;
 import com.sistema.hospitalapi.repository.PacienteRepository;
@@ -22,7 +23,7 @@ public class ProntuarioService {
 
     private Prontuario toEntity(ProntuarioRequestDTO dto) {
         Paciente paciente = pacienteRepository.findById(dto.getPacienteId())
-                .orElseThrow(() -> new RuntimeException("Paciente não encontrado"));
+                .orElseThrow(() -> new RegraNegocioException("Paciente não encontrado"));
 
         Prontuario prontuario = new Prontuario();
         prontuario.setTipoSanguineo(dto.getTipoSanguineo());
@@ -53,7 +54,7 @@ public class ProntuarioService {
 
     public ProntuarioResponseDTO buscarPorId(Long id) {
         Prontuario prontuario = prontuarioRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Prontuario não encontrado"));
+                .orElseThrow(() -> new RegraNegocioException("Prontuario não encontrado"));
 
         return toDTO(prontuario);
     }
@@ -67,10 +68,10 @@ public class ProntuarioService {
     public ProntuarioResponseDTO atualizar(Long id, ProntuarioRequestDTO dto) {
 
         Prontuario prontuarioExistente = prontuarioRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Prontuario não encontrado"));
+                .orElseThrow(() -> new RegraNegocioException("Prontuario não encontrado"));
 
         Paciente paciente = pacienteRepository.findById(dto.getPacienteId())
-                .orElseThrow(() -> new RuntimeException("Paciente não encontrado"));
+                .orElseThrow(() -> new RegraNegocioException("Paciente não encontrado"));
 
         prontuarioExistente.setTipoSanguineo(dto.getTipoSanguineo());
         prontuarioExistente.setAlergia(dto.getAlergia());
@@ -84,7 +85,7 @@ public class ProntuarioService {
 
     public void remover(Long id) {
         Prontuario prontuario = prontuarioRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Prontuario não encontrado!"));
+                .orElseThrow(() -> new RegraNegocioException("Prontuario não encontrado!"));
 
         prontuarioRepository.delete(prontuario);
     }

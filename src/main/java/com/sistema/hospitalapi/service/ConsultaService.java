@@ -2,6 +2,7 @@ package com.sistema.hospitalapi.service;
 
 import com.sistema.hospitalapi.dto.ConsultaRequestDTO;
 import com.sistema.hospitalapi.dto.ConsultaResponseDTO;
+import com.sistema.hospitalapi.exception.RegraNegocioException;
 import com.sistema.hospitalapi.model.Consulta;
 import com.sistema.hospitalapi.model.Medico;
 import com.sistema.hospitalapi.model.Paciente;
@@ -26,10 +27,10 @@ public class ConsultaService {
 
     private Consulta toEntity(ConsultaRequestDTO dto) {
         Paciente paciente = pacienteRepository.findById(dto.getPacienteId())
-                .orElseThrow(() -> new RuntimeException("Paciente não encontrado"));
+                .orElseThrow(() -> new RegraNegocioException("Paciente não encontrado"));
 
         Medico medico = medicoRepository.findById(dto.getMedicoId())
-                .orElseThrow(() -> new RuntimeException("Medico não encontrado"));
+                .orElseThrow(() -> new RegraNegocioException("Medico não encontrado"));
 
         Consulta consulta = new Consulta();
         consulta.setDataHora(dto.getDataHora());
@@ -61,7 +62,7 @@ public class ConsultaService {
 
     public ConsultaResponseDTO buscarPorId(Long id) {
         Consulta consulta = consultaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Consulta não encontrada"));
+                .orElseThrow(() -> new RegraNegocioException("Consulta não encontrada"));
 
         return toDTO(consulta);
     }
@@ -75,13 +76,13 @@ public class ConsultaService {
     public ConsultaResponseDTO atualizar(Long id, ConsultaRequestDTO dto) {
 
         Consulta consultaExistente = consultaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Consulta não encontrada"));
+                .orElseThrow(() -> new RegraNegocioException("Consulta não encontrada"));
 
         Paciente paciente = pacienteRepository.findById(dto.getPacienteId())
-                .orElseThrow(() -> new RuntimeException("Paciente não encontrado"));
+                .orElseThrow(() -> new RegraNegocioException("Paciente não encontrado"));
 
         Medico medico = medicoRepository.findById(dto.getMedicoId())
-                .orElseThrow(() -> new RuntimeException("Medico não encontrado"));
+                .orElseThrow(() -> new RegraNegocioException("Medico não encontrado"));
 
         consultaExistente.setDataHora(dto.getDataHora());
         consultaExistente.setMotivo(dto.getMotivo());
@@ -98,7 +99,7 @@ public class ConsultaService {
     public void remover(Long id) {
 
         Consulta consulta = consultaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Consulta não encontrado"));
+                .orElseThrow(() -> new RegraNegocioException("Consulta não encontrado"));
 
         consultaRepository.delete(consulta);
     }

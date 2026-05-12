@@ -3,6 +3,7 @@ package com.sistema.hospitalapi.controller;
 import com.sistema.hospitalapi.dto.ProntuarioRequestDTO;
 import com.sistema.hospitalapi.dto.ProntuarioResponseDTO;
 import com.sistema.hospitalapi.service.ProntuarioService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,12 +28,12 @@ public class ProntuarioController {
     }
 
     @PostMapping
-    public ProntuarioResponseDTO salvar(@RequestBody ProntuarioRequestDTO dto) {
+    public ProntuarioResponseDTO salvar(@Valid @RequestBody ProntuarioRequestDTO dto) {
         return prontuarioService.salvar(dto);
     }
 
     @PutMapping("/{id}")
-    public ProntuarioResponseDTO atualizar(@PathVariable Long id, @RequestBody ProntuarioRequestDTO dto) {
+    public ProntuarioResponseDTO atualizar(@PathVariable Long id,@Valid @RequestBody ProntuarioRequestDTO dto) {
         return prontuarioService.atualizar(id, dto);
     }
 

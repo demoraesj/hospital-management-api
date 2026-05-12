@@ -11,9 +11,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class MedicoRequestDTO {
+
     @NotBlank(message = "Nome é obrigatório)")
     private String nome;
+
+    @NotBlank(message = "Especialidade é obrigatória")
     private String especialidade;
+
     @NotBlank(message = "CRM é obrigatório")
     private String crm;
 }

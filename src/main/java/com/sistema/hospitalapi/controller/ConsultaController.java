@@ -3,6 +3,7 @@ package com.sistema.hospitalapi.controller;
 import com.sistema.hospitalapi.dto.ConsultaRequestDTO;
 import com.sistema.hospitalapi.dto.ConsultaResponseDTO;
 import com.sistema.hospitalapi.service.ConsultaService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,12 +28,12 @@ public class ConsultaController {
     }
 
     @PostMapping
-    public ConsultaResponseDTO salvar(@RequestBody ConsultaRequestDTO dto) {
+    public ConsultaResponseDTO salvar(@Valid @RequestBody ConsultaRequestDTO dto) {
         return consultaService.salvar(dto);
     }
 
     @PutMapping("/{id}")
-    public ConsultaResponseDTO atualizar(@PathVariable Long id, @RequestBody ConsultaRequestDTO dto) {
+    public ConsultaResponseDTO atualizar(@PathVariable Long id,@Valid @RequestBody ConsultaRequestDTO dto) {
         return consultaService.atualizar(id, dto);
     }
 

@@ -2,6 +2,7 @@ package com.sistema.hospitalapi.service;
 
 import com.sistema.hospitalapi.dto.PacienteRequestDTO;
 import com.sistema.hospitalapi.dto.PacienteResponseDTO;
+import com.sistema.hospitalapi.exception.RegraNegocioException;
 import com.sistema.hospitalapi.model.Paciente;
 import com.sistema.hospitalapi.repository.PacienteRepository;
 import org.springframework.stereotype.Service;
@@ -43,7 +44,7 @@ public class PacienteService {
 
     public PacienteResponseDTO buscarPorId(Long id) {
         Paciente paciente = pacienteRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Paciente não encontrado"));
+                .orElseThrow(() -> new RegraNegocioException("Paciente não encontrado"));
 
         return toDTO(paciente);
     }
@@ -56,7 +57,7 @@ public class PacienteService {
 
     public PacienteResponseDTO atualizar(Long id, PacienteRequestDTO dto) {
         Paciente pacienteExistente = pacienteRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Paciente não encontrado!"));
+                .orElseThrow(() -> new RegraNegocioException("Paciente não encontrado!"));
 
         pacienteExistente.setNome(dto.getNome());
         pacienteExistente.setCpf(dto.getCpf());
@@ -67,7 +68,7 @@ public class PacienteService {
 
     public void remover(Long id) {
         Paciente paciente = pacienteRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Paciente não encontrado!"));
+                .orElseThrow(() -> new RegraNegocioException("Paciente não encontrado!"));
 
         pacienteRepository.delete(paciente);
     }

@@ -2,6 +2,7 @@ package com.sistema.hospitalapi.service;
 
 import com.sistema.hospitalapi.dto.ReceitaRequestDTO;
 import com.sistema.hospitalapi.dto.ReceitaResponseDTO;
+import com.sistema.hospitalapi.exception.RegraNegocioException;
 import com.sistema.hospitalapi.model.Consulta;
 import com.sistema.hospitalapi.model.Receita;
 import com.sistema.hospitalapi.repository.ConsultaRepository;
@@ -22,7 +23,7 @@ public class ReceitaService {
 
     private Receita toEntity(ReceitaRequestDTO dto) {
         Consulta consulta = consultaRepository.findById(dto.getConsultaId())
-                .orElseThrow(() -> new RuntimeException("Consulta não encontrada"));
+                .orElseThrow(() -> new RegraNegocioException("Consulta não encontrada"));
 
         Receita receita = new Receita();
         receita.setMedicamento(dto.getMedicamento());
@@ -53,7 +54,7 @@ public class ReceitaService {
 
     public ReceitaResponseDTO buscarPorId(Long id) {
         Receita receita = receitaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Receita não encontrada"));
+                .orElseThrow(() -> new RegraNegocioException("Receita não encontrada"));
 
         return toDTO(receita);
     }
@@ -66,10 +67,10 @@ public class ReceitaService {
 
     public ReceitaResponseDTO atualizar(Long id, ReceitaRequestDTO dto) {
         Receita receitaExistente = receitaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Receita não encontrada"));
+                .orElseThrow(() -> new RegraNegocioException("Receita não encontrada"));
 
         Consulta consulta = consultaRepository.findById(dto.getConsultaId())
-                .orElseThrow(() -> new RuntimeException("Consulta não encontrada"));
+                .orElseThrow(() -> new RegraNegocioException("Consulta não encontrada"));
 
         receitaExistente.setMedicamento(dto.getMedicamento());
         receitaExistente.setDosagem(dto.getDosagem());
@@ -85,7 +86,7 @@ public class ReceitaService {
     public void remover(Long id) {
 
         Receita receita = receitaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Receita não encontrada"));
+                .orElseThrow(() -> new RegraNegocioException("Receita não encontrada"));
 
         receitaRepository.delete(receita);
     }

@@ -3,6 +3,7 @@ package com.sistema.hospitalapi.controller;
 import com.sistema.hospitalapi.dto.PacienteRequestDTO;
 import com.sistema.hospitalapi.dto.PacienteResponseDTO;
 import com.sistema.hospitalapi.service.PacienteService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,12 +28,12 @@ public class PacienteController {
     }
 
     @PostMapping
-    public PacienteResponseDTO salvar(@RequestBody PacienteRequestDTO dto) {
+    public PacienteResponseDTO salvar(@Valid @RequestBody PacienteRequestDTO dto) {
         return pacienteService.salvar(dto);
     }
 
     @PutMapping("/{id}")
-    public PacienteResponseDTO atualizar(@PathVariable Long id, @RequestBody PacienteRequestDTO dto) {
+    public PacienteResponseDTO atualizar(@PathVariable Long id,@Valid @RequestBody PacienteRequestDTO dto) {
         return pacienteService.atualizar(id, dto);
     }
 

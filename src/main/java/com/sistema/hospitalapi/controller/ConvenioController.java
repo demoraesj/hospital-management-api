@@ -3,6 +3,7 @@ package com.sistema.hospitalapi.controller;
 import com.sistema.hospitalapi.dto.ConvenioRequestDTO;
 import com.sistema.hospitalapi.dto.ConvenioResponseDTO;
 import com.sistema.hospitalapi.service.ConvenioService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,12 +28,12 @@ public class ConvenioController {
     }
 
     @PostMapping
-    public ConvenioResponseDTO salvar(@RequestBody ConvenioRequestDTO dto) {
+    public ConvenioResponseDTO salvar(@Valid @RequestBody ConvenioRequestDTO dto) {
         return convenioService.salvar(dto);
     }
 
     @PutMapping("/{id}")
-    public ConvenioResponseDTO atualizar(@PathVariable Long id, @RequestBody ConvenioRequestDTO dto) {
+    public ConvenioResponseDTO atualizar(@PathVariable Long id,@Valid @RequestBody ConvenioRequestDTO dto) {
         return convenioService.atualizar(id, dto);
     }
 
