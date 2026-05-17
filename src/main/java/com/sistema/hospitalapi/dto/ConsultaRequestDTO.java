@@ -3,7 +3,6 @@ package com.sistema.hospitalapi.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.aspectj.bridge.IMessage;
 
 import java.time.LocalDateTime;
 

@@ -1,4 +1,4 @@
-package com.sistema.hospitalapi.dto; //DADOS QUE O USER PRECISA SABER
+package com.sistema.hospitalapi.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

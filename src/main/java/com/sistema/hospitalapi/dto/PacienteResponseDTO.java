@@ -1,4 +1,4 @@
-package com.sistema.hospitalapi.dto; //dados pra ver na API
+package com.sistema.hospitalapi.dto;
 
 import lombok.Builder;
 import lombok.Data;

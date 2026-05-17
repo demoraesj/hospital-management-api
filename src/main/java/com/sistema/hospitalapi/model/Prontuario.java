@@ -1,7 +1,16 @@
 package com.sistema.hospitalapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Prontuario {
 
@@ -11,47 +20,11 @@ public class Prontuario {
     private String tipoSanguineo;
     private String alergia;
     private String observacoes;
+
+    @JsonIgnore
+    //@JsonBackReference("paciente-prontuario")
     @ManyToOne
     @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTipoSanguineo() {
-        return tipoSanguineo;
-    }
-
-    public void setTipoSanguineo(String tipoSanguineo) {
-        this.tipoSanguineo = tipoSanguineo;
-    }
-
-    public String getAlergia() {
-        return alergia;
-    }
-
-    public void setAlergia(String alergia) {
-        this.alergia = alergia;
-    }
-
-    public String getObservacoes() {
-        return observacoes;
-    }
-
-    public void setObservacoes(String observacoes) {
-        this.observacoes = observacoes;
-    }
-
-    public Paciente getPaciente() {
-        return paciente;
-    }
-
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
-    }
 }
