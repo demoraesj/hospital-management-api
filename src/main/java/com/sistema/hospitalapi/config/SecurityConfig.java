@@ -1,4 +1,4 @@
-package com.sistema.hospitalapi.security;
+package com.sistema.hospitalapi.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
